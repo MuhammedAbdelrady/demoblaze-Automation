@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+
+<suite name="Demoblaze">
+    <test name="baseTest">
+        <packages>
+            <package name="root"></package>
+            <package name="Signup"></package>
+            <package name="SignIn"></package>
+            <package name="Cart"></package>
+        </packages>
+    </test>
+</suite>
