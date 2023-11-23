@@ -5,7 +5,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
+
+import java.time.Duration;
 
 
 public class Home {
@@ -15,20 +18,17 @@ public class Home {
 
     @BeforeSuite
     public void setupAll(){
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.demoblaze.com/index.html");
         System.out.println("Testing session is started");
     }
-    public static void closeWindow(){
-        driver.findElement(By.xpath("//*[@id=\"signInModal\"]/div/div/div[3]/button[1]")).click();
-    }
 
     public static void goHome(){
         driver.get("https://www.demoblaze.com/index.html");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
-
 
     @AfterSuite
     public void closeAll(){
